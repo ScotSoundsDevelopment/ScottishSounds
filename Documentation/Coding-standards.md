@@ -64,3 +64,11 @@ Once the PR is approved by all the reviewers, you will be in charge of the merge
 ##### Code Reviews
 These happen when you are added as a reviewer in a Pull Request. Every person should be able to review each other's code, and be able to understand what the code is for and why choices have been made, what specific functions are for and why they have been added. When writing code keep in mind others will have to understand it as well.
 
+### Directory Structure
+Having a good methodology behind the shape of the directory structure allow us to understand where to put or look for files. The structure may change based on the stack decided, for now this is how the structure looks like:
+
+ScottishSounds	
+	├── .github <-- GitHub Workflows files go here
+	├── Documentation <-- All documentation and reports go here
+	├── README.md <-- At the root so it shows in Github
+	└── .gitignore <-- gitignore at the root so it applies to all files
