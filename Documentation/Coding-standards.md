@@ -37,7 +37,7 @@ Use `git --help` when unsure which command to use.
 `git stash pop`: Once you have switched to the correct branch, this command will "release" the changes into the new branch, no work gets lost!
 
 #### GitHub
-GitHub allows you to host a repo in the cloud and share it with other developers. It has become industry standards not only because it allow to work on it from multiple endpoints but also because it makes the repository always available.
+GitHub allows you to host a repo in the cloud and share it with other developers. It has become industry standards not only because it allows to work on a repo from multiple endpoints but also because it makes the repository always available.
 There are specific workflows to follow when working on a hosted repository, this is to protect the codebase from braking changes, as well as making sure your code can be reviewed by your peers.
 
 ##### How To Name Branches
