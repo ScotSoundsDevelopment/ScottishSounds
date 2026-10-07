@@ -30,7 +30,7 @@ Use `git --help` when unsure which command to use.
 `git status`: Allows you to check on the status of the files contained in the folder, it will show if there is any unmarked (new) file, any staged (added) file, any deleted file or any modified file that needs to be committed.
 `git branch`: Shows all the local branches available, when adding a word after 'branch' it creates a new branch with that word as a name
 `git checkout branch`: It switches to the branch named 'branch'
-`git add .`: Stages all directory changes
+`git add .`: Stages all file changes
 `git add ./folder/specificFile.txt`: Stages the file specified in the path, good practice when you want to write a personalised commit message to each change
 `git commit -m 'message'`: Commits all the staged files, this is like a save on the branch it is called from, adding a message is mandatory, it will help understand what changes have been made and it will appear as the commit title
 `git stash`: Have you added changes to the wrong branch? No worries! You can "stash" any staged change away, this command will allow you to virtually undo your changes without deleting them
