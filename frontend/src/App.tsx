@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -6,6 +6,21 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const checkApi = async () => {
+      try {
+        const res = await fetch("http://localhost:8080/test")
+        if(!res.ok) console.error("could not fetch api")
+        const data = await res.json()
+        console.log("successfull API connection")
+        console.log(data)
+      } catch (err) {
+        console.error(err)
+      }
+    } 
+    checkApi();
+  })
 
   return (
     <>
