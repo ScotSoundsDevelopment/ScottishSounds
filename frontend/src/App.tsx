@@ -11,7 +11,10 @@ function App() {
     const checkApi = async () => {
       try {
         const res = await fetch("http://localhost:8080/test")
-        if(!res.ok) console.error("could not fetch api")
+        if(!res.ok) {
+          console.error("could not fetch api")
+          return
+        }
         const data = await res.json()
         console.log("successfull API connection")
         console.log(data)
