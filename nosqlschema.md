@@ -1,6 +1,6 @@
 <!-- First Iterations -->
 
-# First Iterations
+# First Iteration (MVP)
 
 ### Flowchart
 
