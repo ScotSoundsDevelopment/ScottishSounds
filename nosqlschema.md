@@ -1,25 +1,64 @@
+<!-- First Iterations -->
+
+# First Iterations
+
+### Flowchart
+
+``` mermaid
+flowchart LR
+    subgraph Exercises ["Collection: exercises"]
+        ExerciseDoc["<b><u>ExerciseDocument</u></b><br/><br/>id: string<br/>title: string<br/>description: string<br/>videoUrl: string<br/>audioUrl: string<br/>transcriptionSolution: string[]<br/>difficultyLevel: string<br/>"]
+    end
+
+```
+
+<!-- First Iterations -->
+### Class Diagram
+```mermaid
+
+classDiagram
+    class Exercise {
+        string id
+        string title
+        string description
+        string videoUrl
+        string audioUrl
+        string[] transcriptionSolution
+        string difficultyLevel
+        }
+```
+
+    
+    
+<!-- Future Iterations -->
+# Future Iterations
+
+### Flowchart
 ``` mermaid
 flowchart LR
     subgraph Users ["Collection: users"]
         UserDoc["<b><u>UserDocument</u></b><br/><br/> id: string<br/>displayName: string<br/>email: string<br/>role: 'student' | 'admin'<br/>"]
     end
 
-    subgraph Transcription ["Collection: transcriptions"]
-        TranscriptionDoc["<b><u>TranscriptionDocument</u></b><br/><br/>id: string<br/>title: string<br/>description: string<br/>mediaUrl: string<br/>mediaType: 'audio' | 'video'<br/>phoneticTarget: string[]<br/>difficultyLevel: string<br/>user: { id, displayName, role }<br/>"]
+    subgraph Exercise ["Collection: exercises"]
+        ExerciseDoc["<b><u>ExerciseDocument</u></b><br/><br/>id: string<br/>title: string<br/>description: string<br/>videoUrl: string<br/>audioUrl: string<br/>transcriptionSolution: string[]<br/>difficultyLevel: string<br/>"]
     end
 
     subgraph Feedback ["Subcollection: feedback"]
-        FeedbackDoc["<b><u>FeedbackDocument</u></b><br/><br/>id: string<br/>transcriptionId: string<br/>user: { id, displayName, role }<br/>transcriptionAttempt: string<br/>isCorrect?: boolean<br/>feedbackText?: string<br/>"]
+        FeedbackDoc["<b><u>FeedbackDocument</u></b><br/><br/>id: string<br/>exerciseId: string<br/>user: { id, displayName, role }<br/>attemptsCount: int<br/>wrongAnswers: string[]<br/>revealedAnswer: boolean<br/>feedbackText: string<br/>"]
     end
-    TranscriptionDoc -->|"Subcollection"| FeedbackDoc
+
+    ExerciseDoc -->|"Subcollection"| FeedbackDoc
 
     subgraph searches ["Query"]
-        CGQ["<b>Summary Query ('feedback')</b><br/>Queries all student submission/feedback documents across all transcriptions globally"]
+        CGQ["<b>Summary Query ('feedback')</b><br/>Queries all student submission/feedback documents across all exercises globally"]
     end
 
     CGQ -.->|"Searches"| FeedbackDoc
 
 ```
+
+### Class Diagram
 
 ``` mermaid
 
@@ -30,24 +69,26 @@ classDiagram
         string email
         string role
     }
-    class Transcription {
+    class Exercise {
         string id
         string title
         string description
-        string mediaUrl
-        string mediaType
-        string[] phoneticTarget
+        string videoUrl
+        string audioUrl
+        string[] transcriptionSolution
         string difficultyLevel
-        Object user
+        
     }
     class Feedback {
         string id
-        string transcriptionId
+        string exerciseId
         Object user
-        string transcriptionAttempt
-        boolean isCorrect
+        int attemptsCount
+        string[] wrongAnswers
+        boolean revealedAnswer
         string feedbackText
     }
-    Transcription  -->  Feedback : subcollection
-
+    Exercise  -->  Feedback : subcollection
     ```
+
+ 
