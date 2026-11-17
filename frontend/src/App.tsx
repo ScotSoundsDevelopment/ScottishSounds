@@ -17,6 +17,7 @@ function App() {
         }
         const data = await res.json()
         console.log("successfull API connection")
+        console.log("just a test for the workflows")
         console.log(data)
       } catch (err) {
         console.error(err)
