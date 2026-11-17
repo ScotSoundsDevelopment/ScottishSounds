@@ -4,13 +4,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 
+let apiBase = import.meta.env.VITE_API_URL
+
 function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
     const checkApi = async () => {
       try {
-        const res = await fetch("http://localhost:8080/test")
+        const res = await fetch(`${apiBase}/test`)
         if(!res.ok) {
           console.error("could not fetch api")
           return
